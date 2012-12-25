@@ -1,7 +1,9 @@
 Fumanchu
 ========
 
-Fumanchu.js, a Mustache extension. It behaves like Mustache.js, but returns a lot more.
+###NB! WORK IN PROGRESS!
+
+Fumanchu.js is a [Mustache.js](/janl/mustache.js/) extension. It behaves like Mustache.js, but does a lot more.
 
 It can… 
 

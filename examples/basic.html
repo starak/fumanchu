@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <title>Basic fumanchu examle</title>
+    <script src="external/mustache.js"></script>
+    <script src="../src/fumanchu.min.js"></script>
+    <script>
+        window.addEventListener( "load", function onload(){
+
+            // Pickup templates from body
+            fumanchu.init();
+
+            // We need some data
+            var data = {
+                title : "Hello World!",
+                list : [
+                    "Item 1",
+                    "Item 2",
+                    "Item 3",
+                    "Item 4"
+                ]
+            };
+
+            // A simple helper
+            var counter = 1;
+            fumanchu.register.helper("counter",function(){
+                return function(){
+                    return counter++;
+                }
+            });
+
+            // Now run the data with the template
+            var result = fumanchu( "myTemplate", data ).appendTo( "body" );
+
+            // Set a color on the collected title
+            result.title.style.color = "red";
+
+            // Bind some functionality to the collected list
+            result.list.forEach(function( el ){
+
+                el.addEventListener( "click", function(){
+
+                    el.style.color = "blue";
+                    console.log( "You clicked '%s'", el.innerHTML );
+
+                });
+
+            });
+
+        }, false );
+    </script>
+</head>
+<body>
+    
+<script id="myTemplate" type="text/fumanchu-template">
+    <h1 data-collect-as="title">{{title}}</h1>
+    <ul>
+        {{#list}}
+            <li data-collect-as="list" data-collect-type="array">{{#counter/}} : {{.}}</li>
+        {{/list}}
+    </ul>
+</script>
+
+</body>
+</html>

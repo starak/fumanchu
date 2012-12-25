@@ -1,0 +1,128 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <title>Fumanchu Helpers</title>
+    <style>
+        .myBox{
+            font: 90% Helvetica, Arial, Sans-serif;
+            line-height: 1.5;
+            width: 350px;
+            border: 1px solid #333;
+        }
+
+        .myBox h1{
+            color: #fff;
+            background-color: #333;
+            padding: 5px 10px;
+            margin:0;
+        }
+
+        .myBox li{
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .myBox li span{
+            color:#999;
+            font-weight: normal;
+        }
+
+        .myBox .boxFoot{
+            padding: 5px 10px;
+            background-color: #eee;
+            text-align: center;
+        }
+    </style>
+    <script src="http://www.raknes.net/fumanchu/lib/date.js"></script>
+    <script src="external/mustache.js"></script>
+    <script src="../src/fumanchu.js"></script>
+    <script>
+
+        window.addEventListener("load", function(){
+            var data = {
+                "band" : "Metallica",
+                "people": [
+                    { "firstName": "James", "lastName": "Hetfield", role : "lead vocals, rhythm guitar" },
+                    { "firstName": "Lars", "lastName": "Ulrich", role : "drums" },
+                    { "firstName": "Kirk", "lastName": "Hammett", role : "lead guitar, backing vocals" },
+                    { "firstName": "Robert", "lastName": "Trujillo", role : "bass, backing vocals" }
+                ],
+                "footerText" : "box footer",
+                date : new Date()
+            };
+
+            var helpers = {
+
+                // simple helper
+                name : function () {
+
+                    return this.firstName + " " + this.lastName;
+
+                },
+
+                // helper with parameter
+                formatDate : function(){
+
+                    return function( date, render ){
+
+                        return new Date( render(date) ).toString("dd. MMMM yyyy");
+
+                    }
+
+                }
+            };
+
+            // Add multiple helpers
+            fumanchu.register.helpers(helpers);
+
+            // ... or just one single
+            fumanchu.register.helper("foo",function(){
+                //Do stuff
+            });
+
+            // Pick up inline templates
+            fumanchu.init();
+
+            // Register another template
+            fumanchu.register.template("title", '<h1 data-collect-as="title">{{band}}!</h1>');
+
+            /**
+             * Pair the template 'box.band' with data (returns a document fragment)
+             */
+            var el = fumanchu( "box.band", data ).appendTo( "body" );
+
+            // Do something with the collected elements
+            el.title.style.color = "#ff0";
+            el.people.forEach(function( el, i ){
+                el.addEventListener("click",function(){
+                    console.log(data.people[i].firstName + " was clicked");
+                });
+            });
+
+        },false);
+    </script>
+</head>
+<body>
+
+<script id="box.band" type="text/fumanchu-template">
+    <div class="myBox">
+        {{> title}} <!-- inserts the 'title' template -->
+        <ul>
+            {{#people}}
+            <li data-collect-as="people" data-collect-type="array">
+                {{name}} <span>{{role}}</span>
+            </li>
+            {{/people}}
+        </ul>
+
+        <div class="boxFoot">
+
+            {{#formatDate}}{{date}}{{/formatDate}}
+
+        </div>
+    </div>
+</script>
+
+</body>
+</html>

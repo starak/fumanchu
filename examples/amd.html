@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>fumanchu with AMD</title>
+</head>
+<script src="external/require.js"></script>
+<script>
+
+	require.config({
+		baseUrl : "../src/",
+		paths : {
+			mustache : "../examples/external/mustache"
+		}
+	});
+
+	// requirejs waits for DOMContentLoaded, so we do not have to do that
+	require( ["fumanchu"], function( fumanchu ){
+
+		fumanchu.init(); // pick up the template 
+
+		fumanchu( "myTemplate", { title : "Hello World!" } ) // returns the document fragment
+			.appendTo( "body" ) // returns the empty document fragment, but still with the collection
+			.title.style.color = "#009"; // use the collected 'title' 
+
+	});
+
+</script>
+<body>
+	<script id="myTemplate" type="text/fumanchu-template">
+		<h1 data-collect-as="title">{{title}}</h1>
+	</script>
+</body>
+</html>

@@ -16,9 +16,7 @@ It can…
 
 ##fumanchu( template [, data, partials] )
 
----------
-
-#####fumanchu( template )
+####fumanchu( template )
 **template** A string containing a template
 
 	fumanchu("<h1>Hello World!</h1>");
@@ -28,7 +26,7 @@ Will return a document fragment with containing the h1 element, _not_ as a strin
 ####OR
 
 
-#####fumanchu( templateId )
+####fumanchu( templateId )
 
 **templateId** A string containing a template ID for a [registered template](#register)
 
@@ -36,11 +34,11 @@ Will return a document fragment with containing the h1 element, _not_ as a strin
 	
 ####OR even
 
-#####fumanchu( template, data, partials )
+####fumanchu( template, data, partials )
 
-**templateId** A string containing a template OR a template ID 
+**template** A string containing a template OR a template ID 
 
-**data** A plain object containing data to pare with the template
+**data** A plain object containing data to pair with the template
 
 **partials** An object containing templates or just strings to mixin
 
@@ -62,9 +60,7 @@ fumanchu will return a document fragment containing a method, [`appendTo( select
 
 ##fumanchu.register (namespace)
 
----------
-
-#####fumanchu.register.template( id, template )
+####fumanchu.register.template( id, template )
 
 **name** A string containing the template id
 
@@ -74,7 +70,7 @@ fumanchu will return a document fragment containing a method, [`appendTo( select
 	
 **NOTE:** It's also possible to write templates inline in the HTML document, and then have fumanchu to pick them up with fumanchu.init()
 
-#####fumanchu.register.helper( id, function )
+####fumanchu.register.helper( id, function )
 
 **name** A string containing the helper id
 
@@ -82,7 +78,7 @@ fumanchu will return a document fragment containing a method, [`appendTo( select
 
 	fumanchu.register.helper( "foo", function(){ … } );
 
-#####fumanchu.register.helpers( helpersObj )
+####fumanchu.register.helpers( helpersObj )
 
 **helpersObj** An object containing keys (helperId) and functions (helper)
 
@@ -94,9 +90,7 @@ fumanchu will return a document fragment containing a method, [`appendTo( select
 <a id="init"></a>
 ##init( )
 
----------
-
-#####fumanchu.init( [selector] )
+####fumanchu.init( [selector] )
 
 **selector** Optional. A string containing a selector expression. Defaults to `'script[type="text/fumanchu-template"]'`
 
@@ -120,8 +114,6 @@ Javascript:
 
 <a id="collection"></a>
 ##Collecting elements
-
----------
 
 Collecting elements is very handy, and can be done directly from the template like this:
 
@@ -160,9 +152,7 @@ Script:
 <a id="appendTo"></a>
 ##appendTo( )
 
----------
-
-#####fumanchu( … ).appendTo( selector )
+####fumanchu( … ).appendTo( selector )
 
 **selector** A string containing a CSS selector
 

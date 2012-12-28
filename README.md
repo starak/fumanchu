@@ -9,10 +9,10 @@ It can…
 
 * [register templates](#register)
 * [register helpers](#register)
-* use registered templates as mixins (partials)
+* use registered templates as [mixins/partials](#mixin)
 * [collect elements](#collection) directly by setting attributes in the template
 
----------
+
 
 ##fumanchu( template [, data, partials] )
 
@@ -55,7 +55,7 @@ This will result in:
 
 fumanchu will return a document fragment containing a method, [`appendTo( selector )`](#appendTo), and [collected elements](#collection), 
 
----------
+
 
 ##fumanchu.register (namespace)
 
@@ -86,7 +86,7 @@ fumanchu will return a document fragment containing a method, [`appendTo( select
 
 	fumanchu.register.helpers({ foo : function(){ … }, bar : function(){ … } });
 
----------
+
 
 <a id="init"></a>
 ##init( )
@@ -111,7 +111,6 @@ Javascript:
 
 **NOTE:** The document has to be loaded / ready before using `.init()`
 
----------
 
 <a id="collection"></a>
 ##Collecting elements
@@ -148,6 +147,7 @@ Script:
 
 **NOTE:** data-collect* attributes will be removed from the rendered html.
 
+
 <a id="appendTo"></a>
 ##appendTo( )
 
@@ -162,7 +162,7 @@ Will append the elements in the returned document fragment to the first element 
 ####return empty document fragment
 This method will return an empty document fragment, still containing the [collected elements](#collection).
 
-
+<a name="mixin"></a>
 ## Mixin / Partials
 
 By registering several templates you can insert one template in another.

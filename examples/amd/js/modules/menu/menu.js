@@ -1,5 +1,7 @@
 define( [ 'fumanchu', 'tmpl!./menu.html!menu', 'css!./menu.css' ],function( fumanchu ){
 
+	"use strict";
+
 	var data = {
 
 		items : [
@@ -19,7 +21,7 @@ define( [ 'fumanchu', 'tmpl!./menu.html!menu', 'css!./menu.css' ],function( fuma
 
 		el.addEventListener("click", function(){
 
-			console.log("%s was clicked ",el.getAttribute("data-id"),el);
+			console.log( "%s was clicked ", el.getAttribute( "data-id" ), el );
 
 		}, false );
 

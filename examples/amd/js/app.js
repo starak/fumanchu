@@ -7,12 +7,13 @@ require.config({
 		tmpl : "../../../src/template",
 	},
 	packages: [
-		{ name : "menu", location : "modules/menu", main : "menu" }
+		{ name : "menu", location : "modules/menu", main : "menu" },
+		{ name : "content", location : "modules/content", main : "content" }
 	]
 });
 
 
-require([ "menu", "css!../css/common.css" ],function(menu){
+require([ "menu", "content", "css!../css/common.css" ],function( menu, content ){
 
 	
 

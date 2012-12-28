@@ -1,7 +1,9 @@
 <div class="menu">
 	<ul>
 		{{#items}}
-			<li data-collect-as="items" data-collect-type="array" data-id="{{cls}}" class="{{cls}}">{{text}}</li>
+			<li data-collect-as="items" data-collect-type="array" data-id="{{cls}}" class="{{cls}}">
+				<a href="#{{cls}}">{{text}}</a>
+			</li>
 		{{/items}}
 	</ul>
 </div>

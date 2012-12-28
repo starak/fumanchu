@@ -16,7 +16,12 @@
 
 .menu ul li {
 	display: inline;
-	margin:0 10px;
-	line-height: 50px;
 	font-size: 12px;
+}
+
+.menu ul li a {
+	padding:0 10px;
+	line-height: 50px;
+	color:#fff;
+	text-decoration: none;
 }

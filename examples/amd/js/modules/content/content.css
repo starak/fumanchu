@@ -1,0 +1,26 @@
+div.view {
+	position: absolute;
+	top:0;
+	left:0;
+	right:0;
+	bottom:50px;
+	overflow: auto;
+	box-sizing: border-box;
+	padding:20px;
+	display:none;
+	font-size: 12px;
+	line-height: 1.5;
+}
+
+div.view h1 {
+	margin:0 0 .5em;
+	font-weight: normal;
+}
+
+div.view p {
+	margin:0 0 1em;
+}
+
+div:target {
+	display: block;
+}

@@ -56,7 +56,7 @@ This will result in:
 fumanchu will return a document fragment containing a method, [`appendTo( selector )`](#appendTo), and [collected elements](#collection), 
 
 
-
+<a name="register"></a>
 ##fumanchu.register (namespace)
 
 ####fumanchu.register.template( id, template )
@@ -88,7 +88,7 @@ fumanchu will return a document fragment containing a method, [`appendTo( select
 
 
 
-<a id="init"></a>
+<a name="init"></a>
 ##init( )
 
 ####fumanchu.init( [selector] )
@@ -112,7 +112,7 @@ Javascript:
 **NOTE:** The document has to be loaded / ready before using `.init()`
 
 
-<a id="collection"></a>
+<a name="collection"></a>
 ##Collecting elements
 
 Collecting elements is very handy, and can be done directly from the template like this:
@@ -148,7 +148,7 @@ Script:
 **NOTE:** data-collect* attributes will be removed from the rendered html.
 
 
-<a id="appendTo"></a>
+<a name="appendTo"></a>
 ##appendTo( )
 
 ####fumanchu( … ).appendTo( selector )

@@ -69,7 +69,7 @@ fumanchu will return a document fragment containing a method, [`appendTo( select
 	
 	fumanchu( "title", { title : "Hello World!" } );
 	
-**NOTE:** It's also possible to write templates inline in the HTML document, and then have fumanchu to pick them up with fumanchu.init()
+**NOTE:** It's also possible to write templates inline in the HTML document, and then have fumanchu to pick them up with [fumanchu.init()](#init)
 
 ####fumanchu.register.helper( id, function )
 
@@ -142,7 +142,7 @@ Script:
 	var result = fumanchu( "myTemplate", data ).appendTo( "body" );
 	
 	console.log(result.title) // Contains the h1 element
-	console.log(list) // Contains a list of li elements 
+	console.log(result.list) // Contains a list of li elements 
 	
 
 **NOTE:** data-collect* attributes will be removed from the rendered html.

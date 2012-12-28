@@ -10,7 +10,7 @@ It can…
 * [register templates](#register)
 * [register helpers](#register)
 * use registered templates as mixins (partials)
-* [collect elements](#collection) directly with attributes in the template
+* [collect elements](#collection) directly by setting attributes in the template
 
 ---------
 
@@ -43,11 +43,10 @@ Will return a document fragment with containing the h1 element, _not_ as a strin
 **partials** An object containing templates or just strings to mixin
 
 	var data = { title : "Hello World!", text : "Foo bar baz"};
-	var partials = { title : "<h1>{{title}}</h1>" };
 	
-	fumanchu("{{> title}}<p>{{text}}</p>",);
+	fumanchu("<h1>{{title}}</h1><p>{{text}}</p>",);
 	
-This will result in something like this:
+This will result in:
 
 	<h1>Hello World!</h1>
 	<p>Foo bar baz</p>
@@ -67,6 +66,8 @@ fumanchu will return a document fragment containing a method, [`appendTo( select
 **template** A string containing the Mustache template
 
 	fumanchu.register.template( "title", "<h1>{{title}}</h1>" );
+	
+	fumanchu( "title", { title : "Hello World!" } );
 	
 **NOTE:** It's also possible to write templates inline in the HTML document, and then have fumanchu to pick them up with fumanchu.init()
 
@@ -147,8 +148,6 @@ Script:
 
 **NOTE:** data-collect* attributes will be removed from the rendered html.
 
----------
-
 <a id="appendTo"></a>
 ##appendTo( )
 
@@ -163,5 +162,18 @@ Will append the elements in the returned document fragment to the first element 
 ####return empty document fragment
 This method will return an empty document fragment, still containing the [collected elements](#collection).
 
----------
 
+## Mixin / Partials
+
+By registering several templates you can insert one template in another.
+
+	var data = { title : "Hello World!", text : "Foo bar baz"};
+
+	fumanchu.register.template( "title", "<h1>{{title}}</h1>" )
+	
+	fumanchu("{{> title}}<p>{{text}}</p>",data);
+	
+This will result in:
+
+	<h1>Hello World!</h1>
+	<p>Foo bar baz</p>

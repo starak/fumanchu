@@ -155,6 +155,21 @@
     }
 
     /**
+     * Fix not-mustache-supported self-closing sections ex: {{#foo/}} -> {{#foo}}{{/foo}}
+     *
+     * @method
+     * @private
+     * @param {String}  template
+     *
+     * @return {String} Template
+     **/
+    function fixTemplate( template ){
+
+        return template.replace( /\{\{#([^\/\}]+)\/\}\}/g, "{{#$1}}{{/$1}}" )
+
+    }
+
+    /**
      * Use template by name, if any, or using the string as template
      * Converts the string returned from mustache to a DocumentFragment
      *
@@ -169,8 +184,9 @@
     function fumanchu( template, data, partials ) {
 
         // Check whether or not 'template' is an existing template name
-        template = templates[ template ] || template;
+        template = templates[ template ] || fixTemplate( template );
         partials = partials || {};
+        data = data || {};
 
         var h,t;
 
@@ -188,8 +204,6 @@
             }
 
         }
-
-        
 
         // Add registrated templates to partials
         for( t in templates ){
@@ -218,13 +232,12 @@
          * Register templates with this method
          *
          * @method template
-         * @param name      String Template name/id
-         * @param template  String The template itself
+         * @param {String} name      Template name/id
+         * @param {String} template  The template itself
          */
         template : function( name, template ){
 
-            // Fix not-mustache-supported self-closing sections
-            templates[name] = template.replace(/\{\{#([^\/\}]+)\/\}\}/g,"{{#$1}}{{/$1}}");
+            templates[name] = fixTemplate(template);
 
         },
 
@@ -232,10 +245,10 @@
          * Register helpers with this method
          *
          * @method helper
-         * @param name  String helper name/id
-         * @param fn    Function The helper
+         * @param {String}      name    Helper name/id
+         * @param {Function}    fn      The helper
          */
-        helper : function( name, fn){
+        helper : function( name, fn ){
 
             helpers[name] = fn;
 
@@ -245,7 +258,7 @@
          * Register helpers with this method
          *
          * @method helpers
-         * @param obj  Object - Containing helper(s)
+         * @param {Object} obj  Containing helper(s)
          */
         helpers : function( obj ){
 
@@ -264,23 +277,24 @@
 
     /**
      *  Used to pickup and register templates from the document
-     *  with given query selector
+     *  with given query selector, or the default (defaultTemplateSelector).
      *
-     * @method
+     * @method init
      *
-     * @param [query]         String  Defaults to .mTemplate
-     * @return Array with templates
+     * @param {String} [selector]   String  Defaults to .mTemplate
+     *
+     * @return {Array} Array with registered templates
      */
-    fumanchu.init = function( query ){
+    fumanchu.init = function( selector ){
 
-        query = query || defaultTemplateSelector;
-        var mTemplates = document.querySelectorAll( query ) || [];
+        selector = selector || defaultTemplateSelector;
+        var mTemplates = document.querySelectorAll( selector ) || [];
 
         for ( var i = 0; i < mTemplates.length; i++ ){
             var t = mTemplates[ i ];
 
             // Get the template and fix not-mustache-supported self-closing sections
-            templates[ t.id ] = t.innerHTML.replace( /\{\{#([^\/\}]+)\/\}\}/g, "{{#$1}}{{/$1}}" );
+            templates[ t.id ] = fixTemplate( t.innerHTML );
         }
 
         return templates;

@@ -1,10 +1,10 @@
 require.config({
 	paths:{
-		fumanchu : "../../../src/fumanchu",
-		mustache : "../../external/mustache",
-		text : "../../external/text",
-		css : "../../../src/css",
-		tmpl : "../../../src/template",
+		fumanchu : 	"../../../src/fumanchu",
+		mustache : 	"../../external/mustache",
+		text : 		"../../external/text",
+		css : 		"../../../src/css",
+		tmpl : 		"../../../src/template"
 	},
 	packages: [
 		{ name : "menu", location : "modules/menu", main : "menu" },
@@ -13,8 +13,8 @@ require.config({
 });
 
 
-require([ "menu", "content", "css!../css/common.css" ],function( menu, content ){
+require( [ "menu", "content", "css!../css/common.css" ], function( menu, content ){
 
-	
+	// This example supports IE9+, thow fumanchu supports IE8+ (Standard mode)
 
-});
+} );

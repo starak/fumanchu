@@ -44,7 +44,7 @@ Will return a document fragment with containing the h1 element, _not_ as a strin
 
 	var data = { title : "Hello World!", text : "Foo bar baz"};
 	
-	fumanchu("<h1>{{title}}</h1><p>{{text}}</p>",);
+	fumanchu( "<h1>{{title}}</h1><p>{{text}}</p>", data );
 	
 This will result in:
 
@@ -53,7 +53,9 @@ This will result in:
 
 ####return document fragmant
 
-fumanchu will return a document fragment containing a method, [`appendTo( selector )`](#appendTo), and [collected elements](#collection), 
+fumanchu will return a document fragment containing a method, [`appendTo( selector )`](#appendTo), and [collected elements](#collection), and the fragment it selv.
+
+
 
 
 <a name="register"></a>
@@ -99,7 +101,7 @@ Fumanchu will use the selector to search the DOM for templates, and register the
 
 HTML:
 
-	<script id=	"myTemplate" type="text/fumanchu-template">
+	<script id="myTemplate" type="text/fumanchu-template">
 		<h1>{{title}}</h1>
 	</script>
 

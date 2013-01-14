@@ -6,6 +6,8 @@
 
 (function ( root, factory ) {
 
+    "use strict";
+
     if (typeof define === "function") {
 
         // Mustashe.js must be in the paths or in the root of baseUrl

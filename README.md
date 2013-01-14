@@ -1,8 +1,6 @@
 Fumanchu
 ========
 
-###NB! WORK IN PROGRESS!
-
 Fumanchu.js is a [Mustache.js](/janl/mustache.js/) extension. It behaves like Mustache.js, but does a lot more.
 
 It can… 
@@ -53,7 +51,7 @@ This will result in:
 
 ####return document fragmant
 
-fumanchu will return a document fragment containing a method, [`appendTo( selector )`](#appendTo), and [collected elements](#collection), and the fragment it selv.
+fumanchu will return a document fragment containing a method, [`appendTo( selector )`](#appendTo), [collected elements](#collection) and the fragment it selv.
 
 
 
@@ -155,7 +153,7 @@ Script:
 
 ####fumanchu( … ).appendTo( selector )
 
-**selector** A string containing a CSS selector
+**selector** A string containing a selector expression
 
 Will append the elements in the returned document fragment to the first element matched by the selector.
 

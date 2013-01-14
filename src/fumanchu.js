@@ -1,6 +1,6 @@
 
 /*!
- * Fumanchu 0.0.6, a Mustache extension by Ståle Raknes, 2012
+ * Fumanchu, a Mustache extension by Ståle Raknes, 2012
  * http://github.com/starak/fumanchu
  */
 
@@ -28,6 +28,8 @@
 }( this, function( Mustache ){
 
     "use strict";
+
+    var VERSION = "0.1.0";
 
     // Settings
     var collectTypeAttribute = "data-collect-type",
@@ -304,7 +306,7 @@
     };
 
     // Expose
-    fumanchu.version = "0.0.6";
+    fumanchu.version = VERSION;
 
     return fumanchu;
 

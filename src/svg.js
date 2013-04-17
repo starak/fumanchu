@@ -1,5 +1,5 @@
 /*!
- * SVG Loader, a Require.js plugin to require .svg dependencies, by Ståle Raknes, 2012
+ * SVG Loader, a Require.js plugin to require .svg dependencies, by Ståle Raknes, 2013
  * SVG loader uses text plugin https://github.com/requirejs/text
  * Available via the MIT or new BSD license.
  * More about fumanchu.js http://github.com/starak/fumanchu

@@ -69,7 +69,9 @@ fumanchu will return a document fragment containing a method, [`appendTo( select
 	
 	fumanchu( "title", { title : "Hello World!" } );
 	
-**NOTE:** It's also possible to write templates inline in the HTML document, and then have fumanchu to pick them up with [fumanchu.init()](#init)
+**NOTE:** It's also possible to write templates inline in the HTML document, and then have fumanchu to pick them up with [fumanchu.init()](#init) OR if you're using Require.js, take a look at [AMD and plugins](#AMD)
+
+
 
 ####fumanchu.register.helper( id, function )
 
@@ -177,3 +179,7 @@ This will result in:
 
 	<h1>Hello World!</h1>
 	<p>Foo bar baz</p>
+	
+<a name="AMD"></a>
+## AMD and plugins
+Take a look at the examples and you will find amd-plugins for templates and .svg files that comes in handy.

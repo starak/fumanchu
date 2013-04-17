@@ -4,6 +4,7 @@ require.config({
 		mustache : 	"../../external/mustache",
 		text : 		"../../external/text",
 		css : 		"../../../src/css",
+        svg : 		"../../../src/svg",
 		tmpl : 		"../../../src/template"
 	},
 	packages: [
@@ -13,8 +14,8 @@ require.config({
 });
 
 
-require( [ "menu", "content", "css!../css/common.css" ], function( menu, content ){
+require( [ "menu", "content", "fumanchu", "css!../css/common.css" ], function( menu, content, fumanchu ){
 
-	// This example supports IE9+, thow fumanchu supports IE8+ (Standard mode)
+
 
 } );
